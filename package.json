@@ -8,9 +8,11 @@
     "react-dom": "^15.4.2",
     "react-fa": "^4.1.2",
     "react-simplemde-editor": "^3.6.10",
+    "rodal": "^1.4.1",
     "simplemde": "^1.11.2",
     "textlint": "6.8",
-    "textlint-rule-web-plus-db": "^1.1.5"
+    "textlint-rule-web-plus-db": "^1.1.5",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
