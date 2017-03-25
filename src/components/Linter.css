@@ -6,7 +6,7 @@
 
   color: #fff;
   background: #000;
-  font-family: Monaco;
+  font-family: Monaco, "source-han-sans-japanese", sans-serif;
 }
 
 .Linter ul{

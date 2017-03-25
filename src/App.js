@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v4';
+
+
+import New from './pages/New.js';
 import Top from './pages/Top.js';
 import Edit from './pages/Edit';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -9,7 +12,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Top} />
+          <Route exact path="/"   component={Top} />
+          <Route path="/new"      component={New} />
           <Route path="/edit/:id" component={Edit} />
         </div>
       </Router>

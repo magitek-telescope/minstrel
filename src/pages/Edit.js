@@ -52,7 +52,9 @@ class Edit extends Component {
         {(() => {
           if (this.state.isLoaded) {
             return (
-              <Navigation />
+              <Navigation
+                history={this.props.history}
+              />
             );
           }
         })()}
