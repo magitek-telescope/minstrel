@@ -63,7 +63,7 @@ class Linter extends Component {
             this.state.errors.map((error, index) => {
               return (
                 <li key={index} className={ERRORS[error.severity]}>
-                  <div className="error-line">{error.column}, {error.line}</div>
+                  <div className="error-line">L{error.line}, C{error.column}</div>
                   <div>|</div>
                   <div className="error-body">{error.message}</div>
                   <div>|</div>

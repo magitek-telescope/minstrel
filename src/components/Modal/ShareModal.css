@@ -1,3 +1,7 @@
+.SettingsModal{
+  z-index: 1000000000;
+}
+
 .rodal .header {
   font-size: 16px;
   padding-bottom: 10px;

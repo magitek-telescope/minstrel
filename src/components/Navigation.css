@@ -7,6 +7,7 @@
   z-index: 1000;
   padding-left: 100px;
 
+  pointer-events: none;
   transition: right 0.3s ease-out, padding-left 0.3s ease-out;
 }
 
@@ -26,6 +27,7 @@
   height: 100%;
   flex-wrap: wrap;
   flex-direction: column;
+  pointer-events: none;
 }
 
 .Navigation ul li{
@@ -35,12 +37,28 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background: #555;
+  border-bottom: solid 1px #333;
+  pointer-events: all;
+}
+
+.Navigation ul li:first-of-type{
+  border-radius: 4px 0 0 0 / 4px 0 0 0;
+}
+
+.Navigation ul li:last-of-type{
+  border-radius: 0 0 0 4px / 0 0 0 4px;
+  border-bottom: 0;
 }
 
 .Navigation .fa{
-  color: #999;
+  color: #f0f0f0;
+}
+
+.Navigation li:hover{
+  background: #333;
 }
 
 .Navigation li:hover .fa{
-  color: #333;
+  color: #fff;
 }
