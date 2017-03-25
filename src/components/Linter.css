@@ -1,0 +1,44 @@
+.Linter{
+  width: calc(100% - 30px);
+  height: 150px;
+
+  padding: 15px;
+
+  color: #fff;
+  background: #000;
+  font-family: Monaco;
+}
+
+.Linter ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Linter li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Linter li .error-line{
+  width: 80px;
+}
+
+.Linter li .error-body{
+  flex:1;
+  padding: 0 10px;
+}
+
+.Linter li .error-type{
+  width: 300px;
+}
+
+.Linter li.warning{
+  color: #FDC70D;
+}
+
+.Linter li.error{
+  color: #EA291E;
+  font-weight: bold;
+}

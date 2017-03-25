@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import Navigation from './components/Navigation';
-import Editor from './components/Editor';
-import './App.css';
+import uuid from 'uuid/v4';
+import Top from './pages/Top.js';
+import Edit from './pages/Edit';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navigation />
-        <Editor />
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={Top} />
+          <Route path="/edit/:id" component={Edit} />
+        </div>
+      </Router>
     );
   }
 }
