@@ -1,10 +1,15 @@
 import './Edit.css';
+import 'rodal/lib/rodal.css';
+
 import axios from 'axios';
 import React, { Component } from 'react';
 
 import Loading from '../components/Loading';
 import Note from '../components/Note';
 import Navigation from '../components/Navigation';
+
+import ShareModal from '../components/Modal/ShareModal';
+import SettingsModal from '../components/Modal/SettingsModal';
 
 import { ContentState, EditorState } from "draft-js";
 import { stateFromMarkdown } from "@r7kamura/draft-js-import-markdown";
@@ -15,7 +20,6 @@ axios.defaults.baseURL = 'http://localhost:4000';
 class Edit extends Component {
   constructor(props){
     super(props);
-    console.dir(props);
 
     this.state = {
       editorState: EditorState.createEmpty(),
@@ -24,26 +28,34 @@ class Edit extends Component {
 
     axios.get(`/posts/${props.match.params.id}`)
     .then((res)=>{
-      console.log(res);
-      this.setState({
+      this.mergeState({
         editorState: EditorState.createWithContent(stateFromMarkdown(res.data.body)),
         isLoaded: true
-      });
+      })
       NoteStore.emit('UPDATE_TEXT', this.state.editorState);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+    }).catch((err)=>{console.log(err)});
+  }
+
+  mergeState(nextState){
+    this.setState(
+      Object.assign(
+        {},
+        this.state,
+        nextState
+      )
+    )
   }
 
   onChange(editorState) {
     window.editorState = editorState;
-
-    this.setState({
-      editorState,
-      isLoaded: true
+    this.mergeState({
+      editorState
     });
     NoteStore.emit('UPDATE_TEXT', editorState);
+  }
+
+  onClose(){
+    this.mergeState({visible: false});
   }
 
   render() {
@@ -78,6 +90,9 @@ class Edit extends Component {
             );
           }
         })()}
+
+        <ShareModal />
+        <SettingsModal />
       </div>
     );
   }

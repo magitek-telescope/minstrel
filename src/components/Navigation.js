@@ -3,6 +3,8 @@ import "./Navigation.css";
 import {Icon} from 'react-fa'
 import {Redirect} from 'react-router-dom';
 
+import NoteStore from '../stores/NoteStore';
+
 class Navigation extends Component {
 
   constructor(props){
@@ -15,14 +17,17 @@ class Navigation extends Component {
     this.props.history.push("/new");
   }
 
+  showShareModal(){
+    NoteStore.emit('SHOW_SHARE_MODAL');
+  }
+
   render() {
     return (
       <nav className="Navigation">
         <ul>
           <li onClick={this.createNewItem.bind(this)}><Icon name='file-text-o' /></li>
           <li><Icon name='folder-open-o' /></li>
-          <li><Icon name='code' /></li>
-          <li><Icon name='share-alt' /></li>
+          <li onClick={this.showShareModal.bind(this)}><Icon name='share-alt' /></li>
           <li><Icon name='gear' /></li>
         </ul>
       </nav>
