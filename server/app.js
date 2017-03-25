@@ -47,8 +47,8 @@ app.post("/posts", (req, res) => {
   })
 });
 
-app.put("/posts/id", (req, res) => {
-  client.set(`/posts/${req.body.id}`, req.body.body, (err, body)=>{
+app.put("/posts/:id", (req, res) => {
+  client.set(`/posts/${req.params.id}`, req.body.body, (err, body)=>{
     res.json({
       result: 'success'
     });

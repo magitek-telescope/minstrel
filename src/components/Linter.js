@@ -4,7 +4,6 @@ import {TextLintCore} from "textlint";
 import LintRule from '../services/LintRule';
 
 import { debounce } from 'lodash';
-
 import axios from 'axios';
 
 import {stateToMarkdown} from 'draft-js-export-markdown';
@@ -21,8 +20,6 @@ const ERRORS = [
   'warning',
   'error'
 ]
-
-console.log(debounce);
 
 class Linter extends Component {
   constructor(props) {
@@ -41,7 +38,7 @@ class Linter extends Component {
     axios.post(
       "/lint",
       {
-        body: text,
+        body: text||"",
         rules: [
           "textlint-rule-no-todo",
           "textlint-rule-no-mix-dearu-desumasu",
@@ -49,7 +46,6 @@ class Linter extends Component {
         ]
       }
     ).then((res)=>{
-      console.log(res.data);
       if(res.data) this.setState({errors:res.data});
     });
   }

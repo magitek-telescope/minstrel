@@ -10,7 +10,7 @@
   transition: right 0.3s ease-out, padding-left 0.3s ease-out;
 }
 
-.Navigation:hover{
+.Navigation{
   right: 0;
   padding-left: 0;
 }

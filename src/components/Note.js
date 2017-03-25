@@ -25,7 +25,12 @@ const markdownShortcutsPlugin = createMarkdownShortcutsPlugin();
 const { EmojiSuggestions } = emojiPlugin;
 const { CharCounter, WordCounter, LineCounter } = counterPlugin;
 
-console.log(emojiPlugin);
+import {stateToMarkdown} from 'draft-js-export-markdown';
+
+import { debounce } from 'lodash';
+import axios from 'axios';
+
+import NoteStore from '../stores/NoteStore';
 
 const plugins = [
   emojiPlugin,
@@ -39,7 +44,22 @@ const plugins = [
 class Note extends Component {
   constructor(props) {
     super(props);
+
+    NoteStore.on('UPDATE_TEXT', (editorState)=>{
+      this.autoSave(stateToMarkdown(editorState.getCurrentContent()));
+    });
   }
+
+  _autoSave(text){
+    axios.put(
+      `/posts/${this.props.postId}`,
+      {
+        body: text
+      }
+    ).then(()=>{}).catch(()=>{});
+  }
+
+  autoSave = debounce(this._autoSave, 500)
 
   render() {
     return (
