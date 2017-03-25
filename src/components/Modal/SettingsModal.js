@@ -15,7 +15,7 @@ class SettingsModal extends Component {
       visible: false
     };
 
-    NoteStore.on('SHOW_SHARE_MODAL', ()=>this.setState({visible: true}));
+    NoteStore.on('SHOW_SETTINGS_MODAL', ()=>this.setState({visible: true}));
   }
 
   onClose(){
@@ -24,15 +24,21 @@ class SettingsModal extends Component {
 
   render() {
     return (
-      <Rodal animation='slideUp' visible={this.state.visible} onClose={this.onClose.bind(this)}>
-        <div className='header'>Noteを共有</div>
+      <Rodal className="SettingsModal" height={400} animation='slideUp' visible={this.state.visible} onClose={this.onClose.bind(this)}>
         <div className='body'>
-          <p>
-            Minstrelの共有は簡単です。<br/>
-            今あなたがアクセスしているURLを、そのまま共有するだけ。特別な設定の必要なしで、あらゆる人へ共有が可能です。
-          </p>
           <div>
-            <input className="url" value={location.href} disabled />
+            <dl>
+              <dt>Lint設定</dt>
+              <dd><input type="checkbox" /> textlint-rule-no-todo</dd>
+              <dd><input type="checkbox" /> textlint-rule-web-plus-db</dd>
+              <dd><input type="checkbox" /> textlint-rule-no-mix-dearu-desumasu</dd>
+            </dl>
+
+            <dl>
+              <dt>デフォルト公開範囲</dt>
+              <dd><input type="radio" /> Public</dd>
+              <dd><input type="radio" /> Private</dd>
+            </dl>
           </div>
         </div>
         <button className='rodal-confirm-btn' onClick={this.onClose.bind(this)}>閉じる</button>

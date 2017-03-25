@@ -21,6 +21,10 @@ class Navigation extends Component {
     NoteStore.emit('SHOW_SHARE_MODAL');
   }
 
+  showSettingsModal(){
+    NoteStore.emit('SHOW_SETTINGS_MODAL');
+  }
+
   render() {
     return (
       <nav className="Navigation">
@@ -28,7 +32,7 @@ class Navigation extends Component {
           <li onClick={this.createNewItem.bind(this)}><Icon name='file-text-o' /></li>
           <li><Icon name='folder-open-o' /></li>
           <li onClick={this.showShareModal.bind(this)}><Icon name='share-alt' /></li>
-          <li><Icon name='gear' /></li>
+          <li onClick={this.showSettingsModal.bind(this)}><Icon name='gear' /></li>
         </ul>
       </nav>
     );

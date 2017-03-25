@@ -3702,7 +3702,7 @@ kuromoji@^0.1.1:
     doublearray "0.0.2"
     zlibjs "^0.2.0"
 
-kuromojin@^1.2.1:
+kuromojin@^1.2.1, kuromojin@^1.3.1, kuromojin@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/kuromojin/-/kuromojin-1.3.2.tgz#342bb5cfbee69c9bb31d3fc439a8ad69fd281b11"
   dependencies:
@@ -4010,6 +4010,16 @@ moji@^0.5.1:
   resolved "https://registry.yarnpkg.com/moji/-/moji-0.5.1.tgz#088eecd1c22c8f31a240adcf9c95e54f33eb54fb"
   dependencies:
     object-assign "^3.0.0"
+
+morpheme-match-all@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/morpheme-match-all/-/morpheme-match-all-1.1.0.tgz#97f05382eb89e3755d50839d77f959c111eae43e"
+  dependencies:
+    morpheme-match "^1.1.0"
+
+morpheme-match@^1.0.1, morpheme-match@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/morpheme-match/-/morpheme-match-1.1.0.tgz#d8f3330b95e5f27d1cb610f763285c724c25874a"
 
 ms@0.7.1:
   version "0.7.1"
@@ -5798,6 +5808,21 @@ textlint-rule-helper@^2.0.0:
   dependencies:
     unist-util-visit "^1.1.0"
 
+textlint-rule-ja-no-redundant-expression@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-redundant-expression/-/textlint-rule-ja-no-redundant-expression-1.0.3.tgz#08b4146b99f756d8c0ec56bd3b7111425a3f0d8c"
+  dependencies:
+    kuromojin "^1.3.2"
+    morpheme-match "^1.0.1"
+    morpheme-match-all "^1.1.0"
+
+textlint-rule-ja-no-weak-phrase@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-weak-phrase/-/textlint-rule-ja-no-weak-phrase-1.0.3.tgz#8cc1c2b643e0b0be00225c9b2ff440bf423aeac7"
+  dependencies:
+    kuromojin "^1.3.1"
+    morpheme-match "^1.0.1"
+
 textlint-rule-no-doubled-joshi@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/textlint-rule-no-doubled-joshi/-/textlint-rule-no-doubled-joshi-3.5.1.tgz#759c6c5def8075f849d9a4df551c2d2a0815ba2f"
@@ -5806,6 +5831,13 @@ textlint-rule-no-doubled-joshi@^3.5.1:
     sentence-splitter "^2.2.0"
     textlint-rule-helper "^1.1.4"
     textlint-util-to-string "^1.1.0"
+
+textlint-rule-no-dropping-the-ra@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/textlint-rule-no-dropping-the-ra/-/textlint-rule-no-dropping-the-ra-1.1.2.tgz#17d8c65986d7bd8014a4529303a2ba0b769a89d2"
+  dependencies:
+    kuromojin "^1.2.1"
+    textlint-rule-helper "^1.1.4"
 
 textlint-rule-no-mix-dearu-desumasu@^3.0.3:
   version "3.0.3"

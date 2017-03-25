@@ -13,16 +13,20 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  height: 100%;
+  overflow: auto;
 }
 
 .Linter li{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding-bottom: 2px;
 }
 
 .Linter li .error-line{
   width: 80px;
+  padding-right: 10px;
 }
 
 .Linter li .error-body{
@@ -31,7 +35,8 @@
 }
 
 .Linter li .error-type{
-  width: 300px;
+  width: 350px;
+  padding-left: 10px;
 }
 
 .Linter li.warning{

@@ -10,6 +10,7 @@
 
   background: url(/background.png);
   background-size: 100px 100px;
+  position: relative;
 }
 
 .Editor .DraftEditor-root {
@@ -22,8 +23,12 @@
   font: inherit;
   z-index: 1;
 
-  height: calc(100vh - 236px);
+  overflow: auto;
+
+  height: calc(100vh - 200px);
   font-family: Monaco, "source-han-sans-japanese", sans-serif;
+  -webkit-mask-image: -webkit-gradient(linear, left 85%,
+    left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 .Editor .DraftEditor-root .DraftEditor-editorContainer,
@@ -53,7 +58,12 @@ pre pre{
   color: #555;
   font-family: Monaco, "source-han-sans-japanese", sans-serif;
   letter-spacing: 0.4px;
+
+  position: absolute;
+  right: 10px;
+  bottom: 175px;
 }
+
 .Counts > div{
   margin-left: 10px;
 }

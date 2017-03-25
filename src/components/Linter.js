@@ -42,7 +42,10 @@ class Linter extends Component {
         rules: [
           "textlint-rule-no-todo",
           "textlint-rule-no-mix-dearu-desumasu",
-          "textlint-rule-web-plus-db"
+          "textlint-rule-web-plus-db",
+          "textlint-rule-ja-no-redundant-expression",
+          "textlint-rule-ja-no-weak-phrase",
+          "textlint-rule-no-dropping-the-ra"
         ]
       }
     ).then((res)=>{
@@ -61,8 +64,10 @@ class Linter extends Component {
               return (
                 <li key={index} className={ERRORS[error.severity]}>
                   <div className="error-line">{error.column}, {error.line}</div>
-                  <div className="error-body">| {error.message}</div>
-                  <div className="error-type">| {error.ruleId}</div>
+                  <div>|</div>
+                  <div className="error-body">{error.message}</div>
+                  <div>|</div>
+                  <div className="error-type">{error.ruleId}</div>
                 </li>
               );
             })
