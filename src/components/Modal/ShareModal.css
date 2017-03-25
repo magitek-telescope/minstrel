@@ -1,23 +1,23 @@
-.SettingsModal{
+.ShareModal{
   z-index: 1000000000;
 }
 
-.rodal .header {
+.ShareModal .header {
   font-size: 16px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e9e9e9;
 }
 
-.rodal .body {
+.ShareModal .body {
   padding-top: 15px;
 }
 
-.rodal .body p{
+.ShareModal .body p{
   margin-top: 0;
   font-size: 14px;
 }
 
-.rodal .rodal-cancel-btn, .rodal-confirm-btn {
+.ShareModal .rodal-cancel-btn, .rodal-confirm-btn {
   position: absolute;
   font: inherit;
   font-family: Monaco, "source-han-sans-japanese", sans-serif;
@@ -30,40 +30,40 @@
   cursor: pointer;
 }
 
-.rodal .rodal-confirm-btn {
+.ShareModal .rodal-confirm-btn {
   color: #fff;
   right: 20px;
   background: #03a9f4;
 }
 
-.rodal .rodal-confirm-btn:hover {
+.ShareModal .rodal-confirm-btn:hover {
   background: #0098e3;
 }
 
-.rodal .rodal-cancel-btn {
+.ShareModal .rodal-cancel-btn {
   color: #03a9f4;
   right: 16px;
   background: #fff;
 }
 
-.rodal .rodal-cancel-btn:hover {
+.ShareModal .rodal-cancel-btn:hover {
   background: #fafafa;
 }
 
-.rodal .rodal-cancel-btn:focus, .rodal-confirm-btn:focus {
+.ShareModal .rodal-cancel-btn:focus, .rodal-confirm-btn:focus {
   outline: none;
 }
 
-.rodal .rodal-confirm-btn:active {
+.ShareModal .rodal-confirm-btn:active {
   background: #0087d2;
 }
 
-.rodal .rodal-cancel-btn:active {
+.ShareModal .rodal-cancel-btn:active {
   background: #fafafa;
   box-shadow: inset 1px 1px 1px rgba(0,0,0,.2),0 0 1px transparent;
 }
 
-.rodal .url{
+.ShareModal .url{
   width: calc(100% - 12px);
   height: 30px;
   padding: 0 5px;

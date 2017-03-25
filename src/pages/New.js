@@ -12,11 +12,14 @@ class Top extends Component {
   constructor(props){
     super(props);
 
+    if(!localStorage.getItem("minstrel_user")) localStorage.setItem("minstrel_user", uuid());
+
     const id = uuid();
     axios.post(
       `/posts/`,
       {
         id,
+        user_id: localStorage.getItem("minstrel_user"),
         body: ''
       }
     )

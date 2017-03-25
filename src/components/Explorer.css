@@ -1,0 +1,39 @@
+.Explorer{
+  position: absolute;
+  z-index: 100000000000000;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+
+  color: #000;
+  background: #fff;
+  font-family: sans-serif;
+}
+
+.Explorer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Explorer ul li{
+  padding: 15px;
+  background: #fff;
+  cursor: pointer;
+  border-bottom: solid 1px #e5e5e5;
+  transition: all 0.1s ease-out;
+}
+
+.Explorer ul li:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.Explorer .NoteName{
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.Explorer .uuid{
+  font-size: 12px;
+}
