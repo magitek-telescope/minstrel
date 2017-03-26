@@ -1,24 +1,29 @@
 .List{
   width: 100%;
   height: calc(100% - 20px);
-  background: #EDEFF1;
+  /*background: #EDEFF1;*/
   padding-top: 20px;
+  background: url(/background.png);
+  background-size: 100px 100px;
+  min-width: 800px;;
 }
 
 .List h1{
   text-align: center;
-  color: #555;
+  color: #333;
   font-size: 24px;
   letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-family: Monaco, "source-han-sans-japanese", sans-serif;
 }
 
 .List ul{
   width: 800px;
   margin: 0 auto;
-  background: #fff;
+  /*background: #fff;*/
   list-style: none;
   padding: 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.093)
+  /*box-shadow: 0 3px 6px rgba(0,0,0,0.093)*/
 }
 
 .List ul li{
@@ -26,22 +31,23 @@
 }
 
 .List ul li:nth-of-type(even){
-  background: #fafafa;
+  /*background: #fafafa;*/
 }
 
 .List ul li .title{
-  font-size: 18px;
+  font-size: 24px;
   padding-bottom: 10px;
   border-bottom: solid 1px #e5e5e5;
   font-weight: bold;
   color: #333;
+  display: block;
 }
 
 .List ul li .body{
-  padding-top: 10px;
+  padding: 20px 0;
   font-size: 14px;
   color: #555;
-  line-height: 1.8;
+  line-height: 1.9;
   letter-spacing: 1.1px;
 }
 
@@ -51,4 +57,9 @@
   text-align: right;
   cursor: pointer;
   margin: 10px 0 10px 0;
+}
+
+.List ul li .link a{
+  color: #2b7bb9;
+  text-decoration: none;
 }

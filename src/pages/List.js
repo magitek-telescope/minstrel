@@ -53,14 +53,22 @@ class List extends Component {
                 {(()=>{
                   return this.state.posts.map((post, index)=>{
                     console.log(this.state.posts);
-                    if(!post.body){
-                      return;
-                    }
+                    // if(!post.body){
+                    //   return;
+                    // }
                     return (
                       <li key={index}>
-                        <div className="title">{post.title}</div>
-                        <div className="body">{post.body.length >= 300 ? post.body.slice(0, 140)+"……" : post.body}</div>
-                        <div className="link"><Link to={"/edit/"+post.id}>Edit this post.</Link></div>
+                        <div className="title">
+                          {post.title.replace(/# /g, "")}
+                        </div>
+                        <div className="body">
+                          {post.body.length >= 300 ? post.body.slice(0, 140)+"……" : post.body}
+                          </div>
+                        <div className="link">
+                          <Link to={"/edit/"+post.id}>
+                            Edit this post.
+                          </Link>
+                        </div>
                       </li>
                     );
                   });

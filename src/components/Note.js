@@ -51,6 +51,7 @@ class Note extends Component {
   }
 
   _autoSave(text){
+    console.log(text, this.props.postId);
     axios.put(
       `/posts/${this.props.postId}`,
       {

@@ -27,6 +27,8 @@ class Edit extends Component {
       isLoaded: false
     };
 
+    NoteStore.off();
+
     axios.get(`/posts/${props.match.params.id}`)
     .then((res)=>{
       this.mergeState({
