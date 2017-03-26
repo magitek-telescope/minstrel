@@ -96,7 +96,9 @@ class Edit extends Component {
           }
         })()}
 
-        <ShareModal />
+        <ShareModal
+          postId={this.props.match.params.id}
+        />
         <SettingsModal />
       </div>
     );

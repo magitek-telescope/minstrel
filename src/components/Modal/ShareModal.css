@@ -76,3 +76,20 @@
   outline: none;
   font-size: 14px;
 }
+
+.ShareModal .download{
+  padding-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.ShareModal .download .download-link{
+  color: #2b7bb9;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.ShareModal .download .download-link:hover{
+  text-decoration: underline;
+}

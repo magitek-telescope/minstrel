@@ -94,3 +94,7 @@
   color: #2b7bb9;
   text-decoration: none;
 }
+
+.List ul li .link a:hover{
+  text-decoration: underline;
+}

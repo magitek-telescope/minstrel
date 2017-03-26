@@ -21,6 +21,10 @@ class ShareModal extends Component {
     this.setState({visible:false});
   }
 
+  executeDownload(){
+    window.open(`http://localhost:4000/posts/${this.props.postId}/download`);
+  }
+
   render() {
     return (
       <Rodal className="ShareModal" animation='slideUp' visible={this.state.visible} onClose={this.onClose.bind(this)}>
@@ -32,6 +36,9 @@ class ShareModal extends Component {
           </p>
           <div>
             <input className="url" value={location.href} disabled />
+          </div>
+          <div className='download'>
+            MarkDownとしてダウンロードしたい場合は<span className='download-link' onClick={this.executeDownload.bind(this)}>こちら</span>
           </div>
         </div>
         <button className='rodal-confirm-btn' onClick={this.onClose.bind(this)}>閉じる</button>
