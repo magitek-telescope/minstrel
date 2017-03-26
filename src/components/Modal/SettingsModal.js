@@ -8,8 +8,7 @@ import Rodal from 'rodal';
 import NoteStore from '../../stores/NoteStore';
 
 import Rules from '../../services/LintRule';
-import LinkedStateMixin from 'react-addons-linked-state-mixin'
-console.log(Rules);
+import LinkedStateMixin from 'react-addons-linked-state-mixin';
 
 class SettingsModal extends Component {
   mixins: [LinkedStateMixin]
@@ -18,9 +17,7 @@ class SettingsModal extends Component {
     super(props);
     let ruleActivates = [];
 
-    console.log(Rules);
     Rules.map((rule, index)=>{
-      console.log(rule);
       ruleActivates[index] = {
         name: rule,
         isActive: (localStorage.getItem(`minstrel_rules_${rule}`)=="true")
@@ -31,8 +28,6 @@ class SettingsModal extends Component {
       visible: false,
       ruleActivates
     };
-    console.log(this.state);
-
     NoteStore.on('SHOW_SETTINGS_MODAL', ()=>this.mergeState({visible: true}));
   }
 

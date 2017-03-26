@@ -26,7 +26,7 @@ class Top extends Component {
     .then(()=>{
       setTimeout(()=>{
         this.props.history.push(`/edit/${id}`);
-      }, 1000);
+      }, 2000);
     })
     .catch(()=>{
 

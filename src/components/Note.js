@@ -34,8 +34,8 @@ import NoteStore from '../stores/NoteStore';
 
 const plugins = [
   emojiPlugin,
-  // autoListPlugin,
-  linkifyPlugin,
+  autoListPlugin,
+  // linkifyPlugin,
   markdownShortcutsPlugin,
   // marklessPlugin,
   counterPlugin
@@ -51,7 +51,6 @@ class Note extends Component {
   }
 
   _autoSave(text){
-    console.log(text, this.props.postId);
     axios.put(
       `/posts/${this.props.postId}`,
       {

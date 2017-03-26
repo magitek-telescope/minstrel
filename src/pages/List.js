@@ -66,9 +66,9 @@ class List extends Component {
                 {(()=>{
                   return this.state.posts.map((post, index)=>{
                     console.log(this.state.posts);
-                    // if(!post.body){
-                    //   return;
-                    // }
+                    if(!post.body){
+                      return;
+                    }
                     return (
                       <li key={index}>
                         <div className="title">

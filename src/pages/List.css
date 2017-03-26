@@ -1,6 +1,6 @@
 .List{
   width: 100%;
-  height: calc(100% - 20px);
+  min-height: calc(100vh - 20px);
   /*background: #EDEFF1;*/
   padding-top: 20px;
   background: url(/background.png);
