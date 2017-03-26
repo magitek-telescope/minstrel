@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Linter.css';
 import { debounce } from 'lodash';
 import axios from 'axios';
-import {stateToMarkdown} from 'draft-js-export-markdown';
+import stateToMarkdown from '../services/r7kamura/state-to-gfm/';
 import NoteStore from '../stores/NoteStore';
 
 axios.defaults.baseURL = 'http://localhost:4000';

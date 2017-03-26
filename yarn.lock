@@ -1957,7 +1957,7 @@ draft-js-prism@^1.0.3:
     immutable "*"
     prismjs "^1.5.0"
 
-draft-js-utils@^0.1.5:
+draft-js-utils@^0.1.5, draft-js-utils@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/draft-js-utils/-/draft-js-utils-0.1.7.tgz#e2b6927ca620edf1855a4bfc1cf1d21080a70f16"
 

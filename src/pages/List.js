@@ -65,7 +65,6 @@ class List extends Component {
               <ul>
                 {(()=>{
                   return this.state.posts.map((post, index)=>{
-                    console.log(this.state.posts);
                     if(!post.body){
                       return;
                     }

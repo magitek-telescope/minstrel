@@ -5,27 +5,20 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Editor from 'draft-js-plugins-editor';
 
-import createEmojiPlugin from 'draft-js-emoji-plugin'; // eslint-disable-line import/no-unresolved
-import createLinkifyPlugin from 'draft-js-linkify-plugin';
-import createCounterPlugin from 'draft-js-counter-plugin';
-import createAutoListPlugin from 'draft-js-autolist-plugin';
-import createMarkdownShortcutsPlugin from 'draft-js-markdown-shortcuts-plugin';
-import createMarklessPlugin from '../services/r7kamura/draft-js-markless-plugin/';
+import createCounterPlugin from 'draft-js-counter-plugin'; // eslint-disable-line import/no-unresolved
+import createAutoListPlugin from 'draft-js-autolist-plugin'; // eslint-disable-line import/no-unresolved
+import createMarkdownShortcutsPlugin from 'draft-js-markdown-shortcuts-plugin'; // eslint-disable-line import/no-unresolved
 
 import './Note.css';
 import Linter from './Linter';
 
-const emojiPlugin = createEmojiPlugin();
-const linkifyPlugin = createLinkifyPlugin();
 const counterPlugin = createCounterPlugin();
 const autoListPlugin = createAutoListPlugin();
-const marklessPlugin = createMarklessPlugin();
 const markdownShortcutsPlugin = createMarkdownShortcutsPlugin();
 
-const { EmojiSuggestions } = emojiPlugin;
 const { CharCounter, WordCounter, LineCounter } = counterPlugin;
 
-import {stateToMarkdown} from 'draft-js-export-markdown';
+import stateToMarkdown from '../services/r7kamura/state-to-gfm/';
 
 import { debounce } from 'lodash';
 import axios from 'axios';
@@ -33,8 +26,7 @@ import axios from 'axios';
 import NoteStore from '../stores/NoteStore';
 
 const plugins = [
-  emojiPlugin,
-  autoListPlugin,
+  // autoListPlugin,
   // linkifyPlugin,
   markdownShortcutsPlugin,
   // marklessPlugin,
@@ -50,13 +42,8 @@ class Note extends Component {
     });
   }
 
-  _autoSave(text){
-    axios.put(
-      `/posts/${this.props.postId}`,
-      {
-        body: text
-      }
-    ).then(()=>{}).catch(()=>{});
+  _autoSave(body){
+    axios.put( `/posts/${this.props.postId}`, { body }).then(()=>{}).catch(()=>{});
   }
 
   autoSave = debounce(this._autoSave, 500)

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import uuid from 'uuid/v4';
 
 import New from './pages/New.js';
 import List from './pages/List.js';
 import Top from './pages/Top.js';
 import Edit from './pages/Edit';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

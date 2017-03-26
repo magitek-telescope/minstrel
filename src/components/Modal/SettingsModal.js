@@ -20,7 +20,7 @@ class SettingsModal extends Component {
     Rules.map((rule, index)=>{
       ruleActivates[index] = {
         name: rule,
-        isActive: (localStorage.getItem(`minstrel_rules_${rule}`)=="true")
+        isActive: (localStorage.getItem(`minstrel_rules_${rule}`)==="true")
       };
     })
 
@@ -50,10 +50,10 @@ class SettingsModal extends Component {
 
     localStorage.setItem(
       `minstrel_rules_${ruleActivates[index].name}`,
-      !(localStorage.getItem(`minstrel_rules_${ruleActivates[index].name}`) == "true")
+      !(localStorage.getItem(`minstrel_rules_${ruleActivates[index].name}`) === "true")
     );
 
-    ruleActivates[index].isActive = (localStorage.getItem(`minstrel_rules_${ruleActivates[index].name}`)=="true");
+    ruleActivates[index].isActive = (localStorage.getItem(`minstrel_rules_${ruleActivates[index].name}`)==="true");
     this.mergeState({
       ruleActivates
     });
