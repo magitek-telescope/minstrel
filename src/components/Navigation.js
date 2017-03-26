@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import "./Navigation.css";
 import {Icon} from 'react-fa'
-import {Redirect} from 'react-router-dom';
-
 import NoteStore from '../stores/NoteStore';
 
 class Navigation extends Component {
-
-  constructor(props){
-    super(props);
-  }
 
   createNewItem(){
     console.log("Execute");

@@ -66,7 +66,7 @@ class List extends Component {
                 {(()=>{
                   return this.state.posts.map((post, index)=>{
                     if(!post.body){
-                      return;
+                      return null;
                     }
                     return (
                       <li key={index}>

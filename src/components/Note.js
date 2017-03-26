@@ -1,8 +1,6 @@
 import 'draft-js-emoji-plugin/lib/plugin.css';
 
-import { Entity } from 'draft-js';
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Editor from 'draft-js-plugins-editor';
 
 import createCounterPlugin from 'draft-js-counter-plugin'; // eslint-disable-line import/no-unresolved
@@ -16,7 +14,7 @@ const counterPlugin = createCounterPlugin();
 const autoListPlugin = createAutoListPlugin();
 const markdownShortcutsPlugin = createMarkdownShortcutsPlugin();
 
-const { CharCounter, WordCounter, LineCounter } = counterPlugin;
+const { CharCounter, LineCounter } = counterPlugin;
 
 import stateToMarkdown from '../services/r7kamura/state-to-gfm/';
 
@@ -26,10 +24,8 @@ import axios from 'axios';
 import NoteStore from '../stores/NoteStore';
 
 const plugins = [
-  // autoListPlugin,
-  // linkifyPlugin,
+  autoListPlugin,
   markdownShortcutsPlugin,
-  // marklessPlugin,
   counterPlugin
 ];
 

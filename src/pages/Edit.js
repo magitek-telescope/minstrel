@@ -6,13 +6,13 @@ import React, { Component } from 'react';
 
 import Loading from '../components/Loading';
 import Note from '../components/Note';
-import Explorer from '../components/Explorer';
+// import Explorer from '../components/Explorer';
 import Navigation from '../components/Navigation';
 
 import ShareModal from '../components/Modal/ShareModal';
 import SettingsModal from '../components/Modal/SettingsModal';
 
-import { ContentState, EditorState } from "draft-js";
+import { EditorState } from "draft-js";
 import { stateFromMarkdown } from "@r7kamura/draft-js-import-markdown";
 import NoteStore from '../stores/NoteStore';
 

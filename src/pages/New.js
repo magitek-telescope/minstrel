@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v4';
-import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 
 import axios from 'axios';
