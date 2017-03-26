@@ -22,6 +22,10 @@ class Navigation extends Component {
     NoteStore.emit('SHOW_SETTINGS_MODAL');
   }
 
+  executeDownload(){
+    window.open(`http://localhost:4000/posts/${this.props.postId}/download`);
+  }
+
   render() {
     return (
       <nav className="Navigation">
@@ -29,6 +33,7 @@ class Navigation extends Component {
           <li onClick={this.createNewItem.bind(this)}><Icon name='file-text-o' /></li>
           <li onClick={this.moveToList.bind(this)}><Icon name='folder-open-o' /></li>
           <li onClick={this.showShareModal.bind(this)}><Icon name='share-alt' /></li>
+          <li onClick={this.executeDownload.bind(this)}><Icon name='download' /></li>
           <li onClick={this.showSettingsModal.bind(this)}><Icon name='gear' /></li>
         </ul>
       </nav>

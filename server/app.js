@@ -58,6 +58,14 @@ app.get("/users/:id", (req, res) => {
   })
 });
 
+app.get("/posts/:id/download", (req, res) => {
+  client.get(`/posts/${req.params.id}`, (err, body)=>{
+    res.header("Content-Type"       , "application/octet-stream");
+    res.header("Content-Disposition", `attachment; filename="${req.params.id}.md"`);
+    res.send(body);
+  })
+});
+
 app.get("/posts/:id", (req, res) => {
   client.get(`/posts/${req.params.id}`, (err, body)=>{
     res.json({

@@ -69,6 +69,7 @@ class Edit extends Component {
           if (this.state.isLoaded) {
             return (
               <Navigation
+                postId={this.props.match.params.id}
                 history={this.props.history}
               />
             );
