@@ -1,12 +1,8 @@
 import './SettingsModal.css';
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
 import Rodal from 'rodal';
-
 import NoteStore from '../../stores/NoteStore';
-
 import Rules from '../../services/LintRule';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 
@@ -22,6 +18,7 @@ class SettingsModal extends Component {
         name: rule,
         isActive: (localStorage.getItem(`minstrel_rules_${rule}`)==="true")
       };
+      return null;
     })
 
     this.state = {

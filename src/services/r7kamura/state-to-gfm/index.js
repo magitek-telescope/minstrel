@@ -6,10 +6,6 @@ import {
   INLINE_STYLE,
 } from "draft-js-utils";
 import { Entity } from "draft-js";
-import {
-  ContentBlock,
-  ContentState,
-} from "draft-js";
 
 const {
   BOLD,
@@ -39,6 +35,7 @@ class MarkdownGeneration {
     this.blocks.map((block, index) => {
       this.currentBlockIndex = index;
       this.consumeBlock(block);
+      return null;
     });
     return this.output.join("");
   }

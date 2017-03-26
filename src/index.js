@@ -9,7 +9,7 @@ if(!localStorage.getItem("minstrel_user")) localStorage.setItem("minstrel_user",
 
 Rules.map((rule)=>{
   if(localStorage.getItem(`minstrel_rules_${rule}`) === null) localStorage.setItem(`minstrel_rules_${rule}`, true);
-  return;
+  return null;
 });
 
 ReactDOM.render(
