@@ -8,6 +8,37 @@
   min-width: 800px;;
 }
 
+.List .container{
+  text-align: center;
+}
+
+.List .container button{
+  width: 120px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  color: #fff;
+  background: #3AB7FD;
+
+  margin: 0 auto 20px;
+
+  cursor: pointer;
+}
+
+.List .container button a{
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.List .container button:hover{
+  background: #0799FA;
+}
+
 .List h1{
   text-align: center;
   color: #333;

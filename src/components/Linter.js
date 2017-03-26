@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import './Linter.css';
-import {TextLintCore} from "textlint";
-import LintRule from '../services/LintRule';
-
 import { debounce } from 'lodash';
 import axios from 'axios';
-
 import {stateToMarkdown} from 'draft-js-export-markdown';
-
-const textlint = new TextLintCore();
-textlint.setupRules(LintRule);
-
 import NoteStore from '../stores/NoteStore';
 
 axios.defaults.baseURL = 'http://localhost:4000';

@@ -45,6 +45,19 @@ class List extends Component {
             return (<h1>Your Posts</h1>);
           }
         })()}
+          {(() => {
+            if (this.state.isLoaded) {
+              return (
+                <div className="container">
+                  <button>
+                    <Link to="/new">
+                      新規作成
+                    </Link>
+                  </button>
+                </div>
+              );
+            }
+          })()}
 
         {(() => {
           if (this.state.isLoaded) {

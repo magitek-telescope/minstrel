@@ -1,7 +1,8 @@
-console.log(require('textlint-rule-web-plus-db/build/textlint-rule-web-plus-db'));
-
-export default {
-  'textlint-rule-no-todo' : require('textlint-rule-no-todo'),
-  'textlint-rule-no-mix-dearu-desumasu' : require('textlint-rule-no-mix-dearu-desumasu/lib/no-mix-dearu-desumasu'),
-  'textlint-rule-web-plus-db' : require('@potato4d/textlint-rule-web-plus-db')
-};
+export default [
+  "textlint-rule-no-todo",
+  "textlint-rule-web-plus-db",
+  "textlint-rule-ja-no-weak-phrase",
+  "textlint-rule-no-dropping-the-ra",
+  "textlint-rule-no-mix-dearu-desumasu",
+  "textlint-rule-ja-no-redundant-expression"
+];
