@@ -25,7 +25,10 @@ app.post("/lint", (req, res) => {
 
   const textlint = new TextLintCore();
   textlint.setupRules(rules);
-  textlint.lintMarkdown(req.body.body.replace(/\n\n/g, "\n").replace(/```\n(.+)\n```\n/g, "```$1```\n")).then(result => {
+  const raw = req.body.body//.replace(/```[a-z]*\n[\s\S]*?\n```/g, "<!-- code -->");
+  // console.log(raw);
+  textlint.lintMarkdown(raw).then(result => {
+    console.log(result);
     res.json(result.messages);
   });
 });

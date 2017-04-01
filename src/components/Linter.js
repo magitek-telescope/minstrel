@@ -41,7 +41,26 @@ class Linter extends Component {
         ]
       }
     ).then((res)=>{
-      if(res.data) this.setState({errors:res.data});
+      if(res.data){
+        res.data.map((error, index)=>{
+          const targetTextArray = text.split("\n").slice(0, error.line);
+          const targetTextString = targetTextArray.join("\n");
+
+
+          if(!window.a) window.a = targetTextString;
+          // console.log(targetTextString);
+          console.log((targetTextString.match(new RegExp(/```[a-z]*\n[\s\S]*?\n```/g, "g")) || []).length);
+
+
+          const deleteLength = (
+            targetTextArray.filter(t=>t==="").length +
+            targetTextString.match(new RegExp(/```[a-z]*\n[\s\S]*?\n```/, "g")).map(re=>re.split("\n").length-1).reduce((a,b)=>a+b)
+          );
+
+          error.line -= deleteLength;
+        });
+        this.setState({errors:res.data});
+      }
     });
   }
 
