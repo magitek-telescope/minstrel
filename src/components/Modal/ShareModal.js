@@ -28,7 +28,7 @@ class ShareModal extends Component {
   render() {
     return (
       <Rodal className="ShareModal" animation='slideUp' visible={this.state.visible} onClose={this.onClose.bind(this)}>
-        <div className='header'>Noteを共有</div>
+        <div className='header'>Postを共有</div>
         <div className='body'>
           <p>
             Minstrelの共有は簡単です。<br/>

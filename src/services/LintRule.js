@@ -4,5 +4,6 @@ export default [
   "textlint-rule-ja-no-weak-phrase",
   "textlint-rule-no-dropping-the-ra",
   "textlint-rule-no-mix-dearu-desumasu",
-  "textlint-rule-ja-no-redundant-expression"
+  "textlint-rule-ja-hiragana-hojodoushi",
+  "textlint-rule-ja-no-redundant-expression",
 ];

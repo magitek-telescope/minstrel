@@ -36,6 +36,7 @@ class Edit extends Component {
         isLoaded: true
       })
       NoteStore.emit('UPDATE_TEXT', this.state.editorState);
+      document.querySelector("title").innerText = `${res.data.body.split("\n")[0].replace("# ", "")} - Minstrel`;
     }).catch((err)=>{console.log(err)});
   }
 

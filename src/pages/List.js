@@ -16,6 +16,8 @@ class List extends Component {
       isLoaded: false
     }
 
+    document.querySelector("title").innerText = `Your Posts - Minstrel`;
+
     axios.get(`/users/${localStorage.getItem("minstrel_user")}`)
     .then((res)=>{
       this.setState({

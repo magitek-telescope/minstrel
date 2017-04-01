@@ -25,15 +25,14 @@ app.post("/lint", (req, res) => {
 
   const textlint = new TextLintCore();
   textlint.setupRules(rules);
-
-  textlint.lintMarkdown(req.body.body).then(result => {
+  textlint.lintMarkdown(req.body.body.replace(/\n\n/g, "\n").replace(/```\n(.+)\n```\n/g, "```$1```\n")).then(result => {
     res.json(result.messages);
   });
 });
 
 app.get("/users/:id", (req, res) => {
   client.get(`/users/${req.params.id}`, (err, rawPosts)=>{
-    const posts = JSON.parse(rawPosts);
+    const posts = JSON.parse(rawPosts||'{"posts":[]}');
     Promise.all(posts.posts.map((post)=>{
       return new Promise((resolve, reject)=>{
         console.log(post);

@@ -48,6 +48,21 @@ class Linter extends Component {
   checkLint = debounce(this._checkLint, 500)
 
   render() {
+    let ErrorStyles = '';
+
+    const ErrorColors      = ["#333", "#5D3B00", "#FF0000"];
+    const ErrorBackgrounds = ["transparent", "#E2C08D", "#FFF0F0"];
+    this.state.errors.map((error, index) => {
+      ErrorStyles += `
+#root > div > div > div.Editor > div.DraftEditor-root > div > div > div > *:nth-child(${error.line}){
+  color: ${ErrorColors[error.severity]};
+  background: ${ErrorBackgrounds[error.severity]};
+  padding: 5px 0;
+}
+`;
+      return null;
+    });
+
     return (
       <div className='Linter'>
         <ul>
@@ -65,6 +80,9 @@ class Linter extends Component {
             })
           }
         </ul>
+        <style>
+          {ErrorStyles}
+        </style>
       </div>
     );
   }
