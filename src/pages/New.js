@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = '/api';
 
 class Top extends Component {
 

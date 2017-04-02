@@ -22,7 +22,7 @@ class ShareModal extends Component {
   }
 
   executeDownload(){
-    window.open(`http://localhost:4000/posts/${this.props.postId}/download`);
+    window.open(`/api/posts/${this.props.postId}/download`);
   }
 
   render() {

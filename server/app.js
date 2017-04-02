@@ -16,7 +16,7 @@ app.use((req, res, next)=>{
   next();
 });
 
-app.post("/lint", (req, res) => {
+app.post("/api//lint", (req, res) => {
   const rules = [];
 
   req.body.rules.map((rule) => {
@@ -28,17 +28,17 @@ app.post("/lint", (req, res) => {
   const raw = req.body.body//.replace(/```[a-z]*\n[\s\S]*?\n```/g, "<!-- code -->");
   // console.log(raw);
   textlint.lintMarkdown(raw).then(result => {
-    console.log(result);
+    // console.log(result);
     res.json(result.messages);
   });
 });
 
-app.get("/users/:id", (req, res) => {
+app.get("/api//users/:id", (req, res) => {
   client.get(`/users/${req.params.id}`, (err, rawPosts)=>{
     const posts = JSON.parse(rawPosts||'{"posts":[]}');
     Promise.all(posts.posts.map((post)=>{
       return new Promise((resolve, reject)=>{
-        console.log(post);
+        // console.log(post);
         client.get(`/posts/${post}`, (err, body)=>{
           if(err){
             reject();
@@ -60,7 +60,7 @@ app.get("/users/:id", (req, res) => {
   })
 });
 
-app.get("/posts/:id/download", (req, res) => {
+app.get("/api//posts/:id/download", (req, res) => {
   client.get(`/posts/${req.params.id}`, (err, body)=>{
     res.header("Content-Type"       , "application/octet-stream");
     res.header("Content-Disposition", `attachment; filename="${req.params.id}.md"`);
@@ -68,7 +68,7 @@ app.get("/posts/:id/download", (req, res) => {
   })
 });
 
-app.get("/posts/:id", (req, res) => {
+app.get("/api//posts/:id", (req, res) => {
   client.get(`/posts/${req.params.id}`, (err, body)=>{
     res.json({
       body
@@ -76,7 +76,7 @@ app.get("/posts/:id", (req, res) => {
   })
 });
 
-app.post("/posts", (req, res) => {
+app.post("/api//posts", (req, res) => {
   client.exists(`/posts/${req.body.id}`, req.body.body, (err, isExistPost)=>{
     if(isExistPost){
       res.json({
@@ -85,9 +85,9 @@ app.post("/posts", (req, res) => {
     }
 
     client.set(`/posts/${req.body.id}`, req.body.body, (err)=>{
-      console.log(req.body.user_id);
+      // console.log(req.body.user_id);
       client.get(`/users/${req.body.user_id}`, (err, user_posts)=>{
-        console.log(user_posts);
+        // console.log(user_posts);
         const posts = JSON.parse(user_posts||'{"posts":[]}');
         posts.posts.push(req.body.id);
 
@@ -101,7 +101,7 @@ app.post("/posts", (req, res) => {
   });
 })
 
-app.put("/posts/:id", (req, res) => {
+app.put("/api//posts/:id", (req, res) => {
   client.set(`/posts/${req.params.id}`, req.body.body, (err, body)=>{
     res.json({
       result: 'success'
@@ -109,4 +109,4 @@ app.put("/posts/:id", (req, res) => {
   })
 });
 
-app.listen(process.env.PORT || 4000);
+app.listen(process.env.PORT || 4001);

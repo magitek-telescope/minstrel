@@ -33,6 +33,10 @@
   padding-bottom: 20px;
 }
 
+.public-DraftEditor-content > div > *{
+  margin: 20px 0;
+}
+
 .Editor .DraftEditor-root .DraftEditor-editorContainer,
 .Editor .DraftEditor-root .DraftEditor-editorContainer .public-DraftEditor-content{
   height: 100%;

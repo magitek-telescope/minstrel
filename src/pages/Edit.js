@@ -16,7 +16,7 @@ import { EditorState } from "draft-js";
 import { stateFromMarkdown } from "@r7kamura/draft-js-import-markdown";
 import NoteStore from '../stores/NoteStore';
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = '/api';
 
 class Edit extends Component {
   constructor(props){
@@ -32,11 +32,11 @@ class Edit extends Component {
     axios.get(`/posts/${props.match.params.id}`)
     .then((res)=>{
       this.mergeState({
-        editorState: EditorState.createWithContent(stateFromMarkdown(res.data.body)),
+        editorState: EditorState.createWithContent(stateFromMarkdown(res.data.body||"")),
         isLoaded: true
       })
       NoteStore.emit('UPDATE_TEXT', this.state.editorState);
-      document.querySelector("title").innerText = `${res.data.body.split("\n")[0].replace("# ", "")} - Minstrel`;
+      // document.querySelector("title").innerText = `${(res.data.body||"").split("\n")[0].replace("# ", "")} - Minstrel`;
     }).catch((err)=>{console.log(err)});
   }
 

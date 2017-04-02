@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import Loading from '../components/Loading';
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = '/api';
 
 class List extends Component {
   constructor(props){
