@@ -1,10 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const fallback = require('express-history-api-fallback');
 const TextLintCore = require('textlint').TextLintCore;
 const client = require("redis").createClient({
-  port: 16379
+  port: process.env.REDIS_PORT || 6379
 });
+
 
 const app = express();
 
@@ -113,4 +116,4 @@ app.put("/api/posts/:id", (req, res) => {
 app.use(express.static(__dirname + '/../public'))
 app.use(fallback(__dirname + '.index.html', { root: __dirname + '/../public' }))
 
-app.listen(process.env.PORT || 4001);
+app.listen(process.env.API_PORT || 4001);
