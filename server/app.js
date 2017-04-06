@@ -116,4 +116,4 @@ app.put("/api/posts/:id", (req, res) => {
 app.use(express.static(__dirname + '/../public'))
 app.use(fallback(__dirname + '.index.html', { root: __dirname + '/../public' }))
 
-app.listen(process.env.API_PORT || 4001);
+app.listen(process.env.API_PORT || 3002);
