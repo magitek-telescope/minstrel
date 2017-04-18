@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 
 import axios from 'axios';
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = process.env.API_ROOT;
 
 class Top extends Component {
 

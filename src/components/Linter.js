@@ -5,7 +5,7 @@ import axios from 'axios';
 import stateToMarkdown from '../services/r7kamura/state-to-gfm/'; // eslint-disable-line import/no-unresolved
 import NoteStore from '../stores/NoteStore';
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = process.env.API_ROOT;
 
 const ERRORS = [
   'pass',

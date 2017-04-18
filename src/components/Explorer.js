@@ -1,28 +1,29 @@
 import './Explorer.css';
 import React, { Component } from 'react';
+import uuid from 'uuid/v4';
+import {Icon} from 'react-fa';
 
 class Explorer extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      notes: [
-        "Minstrelテスト",
-        "インターステラーをみた",
-        "「ハーモニー」を読んだ",
-        "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。 ",
-      ]
-    }
   }
+
+  moveToPost(id){
+    location.href = `/edit/${id}`;
+  }
+
   render() {
     return (
-      <div className="Explorer">
+      <div className={"Explorer" + (this.props.isOpenList ? " is-open" : "")}>
         <ul>
+          <li className="close" onClick={this.props.onClickCloseButton}>
+            &times;
+          </li>
           {(()=>{
-            return this.state.notes.map((note, index)=>{
+            return this.props.posts.map((post, index)=>{
               return (
-                <li key={index}>
-                  <div className="NoteName">{note}</div>
-                  <div className="uuid">uuid</div>
+                <li key={index} onClick={this.moveToPost.bind(this, post.id)}>
+                  <div className="NoteName"><Icon name='file-text-o' /> <span className="NoteNameBody">{post.title.replace("# ", "")||"無題"}</span></div>
                 </li>
               );
             });

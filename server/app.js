@@ -20,7 +20,7 @@ app.use((req, res, next)=>{
   next();
 });
 
-app.post("/api/lint", (req, res) => {
+app.post("/lint", (req, res) => {
   const rules = [];
 
   req.body.rules.map((rule) => {
@@ -37,7 +37,7 @@ app.post("/api/lint", (req, res) => {
   });
 });
 
-app.get("/api/users/:id", (req, res) => {
+app.get("/users/:id", (req, res) => {
   client.get(`/users/${req.params.id}`, (err, rawPosts)=>{
     const posts = JSON.parse(rawPosts||'{"posts":[]}');
     Promise.all(posts.posts.map((post)=>{
@@ -64,7 +64,7 @@ app.get("/api/users/:id", (req, res) => {
   })
 });
 
-app.get("/api/posts/:id/download", (req, res) => {
+app.get("/posts/:id/download", (req, res) => {
   client.get(`/posts/${req.params.id}`, (err, body)=>{
     res.header("Content-Type"       , "application/octet-stream");
     res.header("Content-Disposition", `attachment; filename="${req.params.id}.md"`);
@@ -72,7 +72,7 @@ app.get("/api/posts/:id/download", (req, res) => {
   })
 });
 
-app.get("/api/posts/:id", (req, res) => {
+app.get("/posts/:id", (req, res) => {
   client.get(`/posts/${req.params.id}`, (err, body)=>{
     res.json({
       body
@@ -80,7 +80,7 @@ app.get("/api/posts/:id", (req, res) => {
   })
 });
 
-app.post("/api/posts", (req, res) => {
+app.post("/posts", (req, res) => {
   client.exists(`/posts/${req.body.id}`, req.body.body, (err, isExistPost)=>{
     if(isExistPost){
       res.json({
@@ -105,7 +105,7 @@ app.post("/api/posts", (req, res) => {
   });
 })
 
-app.put("/api/posts/:id", (req, res) => {
+app.put("/posts/:id", (req, res) => {
   client.set(`/posts/${req.params.id}`, req.body.body, (err, body)=>{
     res.json({
       result: 'success'

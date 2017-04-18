@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@potato4d/textlint-rule-web-plus-db": "https://github.com/potato4d/textlint-rule-web-plus-db.git#npm/support-node-bundle",
     "@r7kamura/draft-js-import-markdown": "^0.1.6",
-    "axios": "^0.15.3",
-    "babel": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "babel-preset-stage-2": "^6.22.0",
+    "axios": "^0.16.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.17.1",
+    "css-loader": "^0.28.0",
+    "dotenv": "^4.0.0",
     "draft-js": "^0.9.1",
     "draft-js-autolist-plugin": "^1.0.0",
     "draft-js-counter-plugin": "^2.0.0-beta1",
@@ -24,18 +28,15 @@
     "draft-js-utils": "^0.1.7",
     "express": "^4.15.2",
     "express-history-api-fallback": "^2.1.0",
-    "font-awesome": "^4.7.0",
-    "lodash": "^4.17.4",
-    "react": "^15.4.2",
-    "react-addons-linked-state-mixin": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "file-loader": "^0.11.1",
+    "react": "^15.5.4",
+    "react-addons-linked-state-mixin": "^15.5.2",
     "react-fa": "^4.1.2",
-    "react-router-dom": "^4.0.0",
-    "react-simplemde-editor": "^3.6.10",
+    "react-router-dom": "^4.1.1",
     "redis": "^2.7.1",
-    "rodal": "^1.4.1",
-    "simplemde": "^1.11.2",
-    "textlint": "6.8",
+    "rodal": "^1.5.0",
+    "style-loader": "^0.16.1",
+    "textlint": "^7.4.0",
     "textlint-rule-ja-hiragana-hojodoushi": "^1.0.4",
     "textlint-rule-ja-no-redundant-expression": "^1.0.3",
     "textlint-rule-ja-no-weak-phrase": "^1.0.3",
@@ -43,89 +44,25 @@
     "textlint-rule-no-dropping-the-ra": "^1.1.2",
     "textlint-rule-no-mix-dearu-desumasu": "^3.0.3",
     "textlint-rule-no-todo": "^2.0.0",
-    "textlint-rule-preset-jtf-style": "^2.2.4",
+    "textlint-rule-preset-jtf-style": "^2.2.5",
     "textlint-rule-web-plus-db": "^1.1.5",
+    "url-loader": "^0.5.8",
     "uuid": "^3.0.1",
-    "yaml-loader": "^0.4.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "6.7.2",
-    "babel-core": "6.22.1",
-    "babel-eslint": "7.1.1",
-    "babel-jest": "18.0.0",
-    "babel-loader": "6.2.10",
-    "babel-preset-react-app": "^2.2.0",
-    "babel-runtime": "^6.20.0",
-    "case-sensitive-paths-webpack-plugin": "1.1.4",
-    "chalk": "1.1.3",
-    "connect-history-api-fallback": "1.3.0",
-    "cross-spawn": "4.0.2",
-    "css-loader": "0.26.1",
-    "detect-port": "1.1.0",
-    "dotenv": "^4.0.0",
-    "eslint": "3.16.1",
-    "eslint-config-react-app": "^0.6.2",
-    "eslint-loader": "1.6.0",
-    "eslint-plugin-flowtype": "2.21.0",
-    "eslint-plugin-import": "2.0.1",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.4.1",
-    "extract-text-webpack-plugin": "1.0.1",
-    "file-loader": "0.10.0",
-    "fs-extra": "0.30.0",
-    "html-webpack-plugin": "2.24.0",
-    "http-proxy-middleware": "0.17.3",
-    "jest": "18.1.0",
-    "json-loader": "0.5.4",
-    "object-assign": "4.1.1",
-    "postcss-loader": "1.2.2",
-    "promise": "7.1.1",
-    "react-dev-utils": "^0.5.2",
-    "style-loader": "0.13.1",
-    "url-loader": "0.5.7",
-    "webpack": "1.14.0",
-    "webpack-dev-server": "1.16.2",
-    "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "2.0.2"
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
     "start": "npm-run-all -p frontend server",
-    "frontend": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "node": "node",
-    "server": "node ./server/app"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
-    }
+    "build": "webpack --config webpack.config.js",
+    "frontend": "webpack-dev-server --config webpack.config.js",
+    "server": "node ./server/app",
+    "node": "node"
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react",
+      "es2015",
+      "stage-0"
     ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Navigation.css";
-import {Icon} from 'react-fa'
+import {Icon} from 'react-fa';
 import NoteStore from '../stores/NoteStore';
 
 class Navigation extends Component {
@@ -27,7 +27,7 @@ class Navigation extends Component {
       <nav className="Navigation">
         <ul>
           <li onClick={this.createNewItem.bind(this)}><Icon name='file-text-o' /></li>
-          <li onClick={this.moveToList.bind(this)}><Icon name='folder-open-o' /></li>
+          <li onClick={this.props.onClickOpenList.bind(this)}><Icon name='folder-open-o' /></li>
           <li onClick={this.showShareModal.bind(this)}><Icon name='share-alt' /></li>
           <li onClick={this.showSettingsModal.bind(this)}><Icon name='gear' /></li>
         </ul>
