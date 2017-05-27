@@ -51,10 +51,11 @@ class Linter extends Component {
           // console.log(targetTextString);
           console.log((targetTextString.match(new RegExp(/```[a-z]*\n[\s\S]*?\n```/g, "g")) || []).length);
 
-
+          console.log("aaa",targetTextString);
+          let matches = (targetTextString.match(new RegExp(/```[a-z]*\n[\s\S]*?\n```/, "g"))||[]);
           const deleteLength = (
             targetTextArray.filter(t=>t==="").length +
-            targetTextString.match(new RegExp(/```[a-z]*\n[\s\S]*?\n```/, "g")).map(re=>re.split("\n").length-1).reduce((a,b)=>a+b)
+            matches.length ? matches.map(re=>re.split("\n").length-1).reduce((a,b)=>a+b) : ''
           );
 
           error.line -= deleteLength;
